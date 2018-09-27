@@ -5,6 +5,17 @@ typedef struct llist {
     int data;
     struct llist *point;
 }list;
+void reverselist(list **head)
+{
+list *p,*q=NULL,*a=*head;
+while(a)
+{
+    p=q;
+    q=a;a=a->point;
+    q->point=p;
+}
+*head=q;
+}
 void addnode(list *head,int data)
 {
     list *a;
